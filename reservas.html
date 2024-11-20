@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>☁️Reservas - Sabores da Terra</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Faça sua Reserva</h1>
+        <!-- Botão para alternar tema -->
+    <button id="theme-toggle" class="theme-toggle">Alternar Tema</button>
+    </header>
+
+    <section>
+        <form id="reservaForm" action="php/process_reserva.php" method="POST">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="telefone">Telefone:</label>
+            <input type="tel" id="telefone" name="telefone" required>
+
+            <label for="data">Data:</label>
+            <input type="date" id="data" name="data" required>
+
+            <label for="hora">Hora:</label>
+            <input type="time" id="hora" name="hora" required>
+
+            <label for="pessoas">Número de Pessoas:</label>
+            <input type="number" id="pessoas" name="pessoas" required>
+
+            <button type="submit">Reservar</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Sabores da Terra☁️</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

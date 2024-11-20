@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>☁️Menu - Sabores da Terra</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Nosso Menu</h1>
+        <button onclick="filterMenu('vegetariano')">Vegetariano</button>
+        <button onclick="filterMenu('pratoDoDia')">Prato do Dia</button>
+        <button onclick="filterMenu('vegano')">vegano</button>
+    </header>
+
+
+    <!-- Botão para alternar tema -->
+    <button id="theme-toggle" class="theme-toggle">Alternar Tema</button>
+
+
+    <section id="menu">
+        <div class="menu-item" data-category="vegetariano">
+            <h3>Salada de Quinoa</h3>
+            <p>Quinoa, vegetais frescos e molho especial.</p>
+            <p>Preço: 1000 MZN</p>
+
+            <div class="carousel">
+        
+                <img class="carousel-image" src="images/Quinoa-salada.jpg" alt="Imagem 1">
+                <img class="carousel-image" src="images/salada de quinoia.jpg" alt="Imagem 2">
+                <img class="carousel-image" src="images/vegetal quinoia.jpg" alt="Imagem 3">
+                <img class="carousel-image" src="images/i.webp" alt="Imagem 4">
+                
+                
+                <!-- Botões de navegação -->
+            <button class="prev" onclick="changeImage(-1)">&#10094;</button>
+            <button class="next" onclick="changeImage(1)">&#10095;</button>
+            </div>
+
+
+        </div>
+
+        <div class="menu-item" data-category="pratoDoDia">
+            <h3>Feijoada</h3>
+            <p>Feijoada tradicional com arroz e couve.</p>
+            <p>Preço: 500,00 MZN</p>
+            <img src="images/feijada com arroz e couve.jpg" alt="Feijoada">
+            <h1>Salada.</h1>
+            <p>Salada de quinoia </p>
+            <p>preço 400.00 mt</p>
+            <img src="images/img1.jpg" alt="salada">
+            <h1>carne cozida</h1>
+            <p>preço 450</p> 
+            <img src="images/carne1.jpg" alt="carne">
+            <h1>carne assada </h1>
+            <p>preço 600.00 mt </p>
+            <img src="images/carne2.jpg" alt="carne2">
+            <h1>carne cozida</h1> 
+            <p>carne cozida com os melhores temperos da nossa terra</p>
+            <p>preço 700.00 mt</p>
+            <img src="images/carne 3.jpg" alt="">
+
+        </div>
+    
+        <div class=" menu-item" data-category="vegano">
+            <h1>piza vegana </h1>
+            <p>preço 500  mt</p> 
+            <img src="images/piza vegana.jpg" alt="piza">
+            <h1>sobremesa vegana especial</h1>
+            <p>preço 700.00 mt</p>
+            <img src="images/veganas111111111.jpg" alt="">
+            <h1>File moqueca vegana</h1>
+            <p>A melhor moqueca </p>
+            <p>preço 300,00</p>
+            <img src="images/Moqueca_vegana.jpg" alt="moqueca vegana">
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Sabores da Terra☁️</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

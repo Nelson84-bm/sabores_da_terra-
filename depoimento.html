@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Depoimentos</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Estilo para depoimentos */
+        .depoimentos {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            max-width: 800px;
+            margin: auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        #form-depoimento {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+
+        #form-depoimento input,
+        #form-depoimento textarea {
+            margin-bottom: 10px;
+            padding: 10px;
+            width: 100%;
+            max-width: 600px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        #form-depoimento button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        #form-depoimento button:hover {
+            background-color: #0056b3;
+        }
+
+        #lista-depoimentos {
+            margin-top: 20px;
+        }
+
+        .depoimento {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .depoimento h4 {
+            margin-bottom: 5px;
+            color: #333;
+            font-size: 18px;
+        }
+
+        .depoimento p {
+            color: #666;
+            font-size: 16px;
+        }
+
+        /* Tema escuro */
+        body.dark-mode {
+            background-color: #27262f;
+            color: #ffffff;
+        }
+
+        .depoimentos.dark-mode,
+        .depoimento.dark-mode {
+            background-color: #333;
+            border-color: #444;
+            color: #fff;
+        }
+
+        #form-depoimento.dark-mode input,
+        #form-depoimento.dark-mode textarea {
+            background-color: #444;
+            color: #fff;
+            border: 1px solid #555;
+        }
+
+        #form-depoimento.dark-mode button {
+            background-color: #1a2868;
+        }
+
+        #form-depoimento.dark-mode button:hover {
+            background-color: #1a2b8a;
+        }
+
+        /* Botão para alternar entre temas */
+        .theme-toggle {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            padding: 10px 20px;
+            background-color: #584b45;
+            color: rgb(255, 255, 255);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .theme-toggle:hover {
+            background-color: #b5aab5;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="depoimentos">
+        <h2>Depoimentos de Clientes</h2>
+
+        <form id="form-depoimento">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" required>
+
+            <label for="comentario">Comentário:</label>
+            <textarea id="comentario" required></textarea>
+
+            <button type="submit">Enviar Depoimento</button>
+        </form>
+
+        <div id="lista-depoimentos">
+            <!-- Aqui os depoimentos serão adicionados -->
+        </div>
+    </div>
+
+    <!-- Botão para alternar tema -->
+    <button id="theme-toggle" class="theme-toggle">Alternar Tema</button>
+
+</body>
+<script>
+    // Seleciona o formulário e a lista onde os depoimentos serão exibidos
+    const form = document.getElementById('form-depoimento');
+    const listaDepoimentos = document.getElementById('lista-depoimentos');
+    const themeToggle = document.getElementById('theme-toggle');
+
+    // Função para salvar os depoimentos no localStorage
+    function salvarDepoimentos(depoimentos) {
+        localStorage.setItem('depoimentos', JSON.stringify(depoimentos));
+    }
+
+    // Função para carregar os depoimentos do localStorage
+    function carregarDepoimentos() {
+        const depoimentos = localStorage.getItem('depoimentos');
+        return depoimentos ? JSON.parse(depoimentos) : [];
+    }
+
+    // Função para exibir os depoimentos na tela
+    function exibirDepoimentos() {
+        listaDepoimentos.innerHTML = ''; // Limpa a lista atual
+        const depoimentos = carregarDepoimentos();
+
+        depoimentos.forEach(depoimento => {
+            const novoDepoimento = document.createElement('div');
+            novoDepoimento.classList.add('depoimento');
+            novoDepoimento.innerHTML = `<h4>${depoimento.nome}</h4><p>${depoimento.comentario}</p>`;
+            listaDepoimentos.appendChild(novoDepoimento);
+        });
+    }
+
+    // Função que será chamada quando o formulário for enviado
+    form.addEventListener('submit', function(event) {
+        event.preventDefault(); // Previne o comportamento padrão de envio do formulário
+
+        // Captura os valores do nome e do comentário
+        const nome = document.getElementById('nome').value;
+        const comentario = document.getElementById('comentario').value;
+
+        // Carrega os depoimentos existentes do localStorage
+        const depoimentos = carregarDepoimentos();
+
+        // Adiciona o novo depoimento à lista de depoimentos
+        depoimentos.push({ nome: nome, comentario: comentario });
+
+        // Salva os depoimentos atualizados no localStorage
+        salvarDepoimentos(depoimentos);
+
+        // Exibe os depoimentos atualizados na tela
+        exibirDepoimentos();
+
+        // Limpa os campos do formulário após o envio
+        form.reset();
+    });
+
+    // Carrega e exibe os depoimentos quando a página é carregada
+    document.addEventListener('DOMContentLoaded', exibirDepoimentos);
+
+    // Alterna entre temas claro e escuro
+    themeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        document.querySelectorAll('.depoimentos, .depoimento').forEach(el => {
+            el.classList.toggle('dark-mode');
+        });
+        form.classList.toggle('dark-mode');
+    });
+</script>
+</html>

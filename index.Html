@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>☁️Sabores da Terra</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="banner">
+    <header>
+        <h1>Bem-vindo ao Sabores da Terra</h1>
+        <p>Desfrute da melhor culinária regional e saudável em um ambiente acolhedor!</p>
+        <img src="" alt="">
+       
+        <button onclick="window.location.href='menu.html'">Ver Menu</button>
+
+        <button onclick="window.location.href='reservas.html'">Reservas</button>
+
+        <button onclick="window.location.href='Contacto.html'">Contacto</button>
+
+        <button onclick="window.location. href = 'depoimento.html'">Depoimento</button>
+    </div>
+    </header>
+
+    <section>
+        <h2>Sobre Nós</h2>
+        <p>Oferecemos pratos caseiros com ingredientes frescos e saudáveis, inspirados na culinária tradicional da nossa região
+        No Sabores da Terra, trazemos até você o melhor da nossa terra, com sabores e tradições que valorizam o campo e a simplicidade das origens. Nossa missão é conectar você às raízes e ao sabor genuíno, com produtos artesanais que representam o carinho e a dedicação de quem vive e cultiva a terra. Explore um universo de aromas e sabores que fazem da nossa gastronomia uma experiência única, autêntica e inesquecível!.</p>
+    </section>
+    <!-- Botão para alternar tema -->
+    <button id="theme-toggle" class="theme-toggle">Alternar Tema</button>
+
+    <section id="promotions">
+        <h2>Promoções Semanais</h2>
+        <div id="promoBanner"></div>
+    </section>
+
+<!--imagens do restaurente concretamente nas promoções-->
+    <div class="carousel">
+        <img class="carousel-image" src="images/img1.jpg" alt="Imagem 1">
+        <img class="carousel-image" src="images/img2.jpg" alt="Imagem 2">
+        <img class="carousel-image" src="images/img3.jpg" alt="Imagem 3">
+        <img class="carousel-image" src="images/img4.jpg" alt="Imagem 4">
+        <img class="carousel-image" src="images/img5.jpg" alt="Imagem 5">
+        <img class="carousel-image" src="images/img6.jpg" alt="Imagem 6">
+        <img class="carousel-image" src="images/img7.jpg" alt="Imagem 7">
+        
+        <!-- Botões de navegação -->
+    <button class="prev" onclick="changeImage(-1)">&#10094;</button>
+    <button class="next" onclick="changeImage(1)">&#10095;</button>
+    </div>
+        
+    <section>
+        <h2>Depoimentos de Clientes</h2>
+        <p>"Comida deliciosa e ambiente incrível!" - João Silva</p>
+        <p>"Voltarei com certeza! Atendimento excelente." - Maria Santos</p>
+    </section>
+ 
+    <footer>
+        <p>&copy; 2024 Sabores da Terra☁️</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
